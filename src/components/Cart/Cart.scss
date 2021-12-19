@@ -1,0 +1,47 @@
+.purchasedProduct{
+    margin-top: 25px;
+
+    .purchasedName{   
+        width: 300px;   
+    }
+
+    .purchasedImg{
+
+        width: 150px;
+        height: 100px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .purchasedPrice {
+        font-size: 1.2em;
+        width: 125px;
+
+        small{
+            font-size: .75em;
+        }
+    }
+
+    .purchasedCount {
+        font-size: 1.2em;
+    }
+
+    button{
+        height: 35px;
+        width: 100px;
+        margin-left: 15px;
+        padding-bottom: 4px;
+        border: none;
+        background-color: rgb(9,9,121, .75);
+        text-align: center;
+        color: white;
+    }
+    
+    .btnDelete2 {
+        width: 200px;
+    }
+}

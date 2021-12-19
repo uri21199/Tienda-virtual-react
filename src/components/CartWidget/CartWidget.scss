@@ -1,0 +1,51 @@
+.cart{
+    margin-right: 5px;
+}
+
+.productsTotal{
+    margin-right: 5px;
+    font-weight: 600;
+    background-color: rgb(9, 9, 129);
+    color: #fff;
+    width: 20px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dropdownCart {
+
+    border: 1px solid #000;
+    z-index: 1200;
+
+    .cartList {
+
+        width: 350px;
+        justify-content: space-evenly;
+    
+        h6 {
+            font-size: .8em;
+            width: 100px;
+        }
+    
+        img {
+            width: 70px;
+            height: 70px;
+        }
+    
+        .priceCart{
+            font-size: .8em;
+        }
+    
+        .quantityCart{
+            font-size: .8em;
+        }
+    }
+    
+    .goCart{
+        position: absolute;
+        font-size: .8em;
+        right: 10px;
+        bottom: 7px;
+    }
+}

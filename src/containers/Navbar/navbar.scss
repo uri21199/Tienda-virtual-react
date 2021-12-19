@@ -1,0 +1,88 @@
+// IMPORT DE FUENTE OSWALD
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+// MENÚ DE NAVEGACIÓN
+
+
+.headerTop {
+    height: 25px;
+    display: flex;
+    padding-top: 15px;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    background-color: #000;
+
+    p {
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.headerBajo {
+    height: 4em;
+    padding-top: .3em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 5px 5px rgb(99, 98, 98);
+
+    .logo {
+        img {
+            
+            width: 45px;
+            height: 45px;
+            object-fit: cover;
+        }
+    }
+
+    .menuUl {
+        display: flex;
+
+        .items {
+            list-style: none;
+            padding-top: 10px;
+
+            a {
+                color: #000;
+                margin: 0 5px;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-family: 'Oswald', sans-serif;
+                font-size: 1.4em;
+            }
+        }
+    }
+
+    .login {
+        display: flex;
+        align-items: center;
+        margin-bottom: .5em;
+
+        #dmode {
+            margin-left: 10px;
+            border: none;
+
+            img {
+                text-align: center;
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        img {
+            margin-right: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            font-family: 'Oswald', sans-serif;
+        }
+    }
+}

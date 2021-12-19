@@ -1,0 +1,31 @@
+.btnEmptyCart{
+    background-color: rgb(121, 9, 9);
+}
+
+.btnFinish, .btnBack{
+    background-color: rgb(9, 9, 121);
+}
+
+.btnFinish {
+    text-decoration: none;
+    padding: 5px 10px;
+    color: white;
+    &:hover{
+        color: white;
+    }
+}
+
+.btnBack{
+    background-color: rgb(9, 9, 121);
+    text-decoration: none;
+    margin-left: 15px;
+    &:hover{
+        color: white;
+    }
+}
+
+.btnEmptyCart, .btnBack{
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+}

@@ -1,0 +1,19 @@
+.loading{
+
+    text-align: center;
+    background-color: #fff;
+
+    img{
+        width:150px;
+        height: 150px;
+    }
+
+    p{
+        font-size: 3em;
+        font-weight: 900;
+        background-color: #ccc;
+        background: linear-gradient(180deg, #1f3053, #e9b729);
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+}

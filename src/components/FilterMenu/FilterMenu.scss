@@ -1,0 +1,34 @@
+.divFilter {
+
+    display: flex;
+    justify-content: center;
+    
+
+    span {
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        &::after {
+            height: 2px;
+            width: 50%;
+            margin: auto;
+            max-width: 100px;
+            content: "";
+            display: block;
+            position: relative;
+            background-color: rgb(55, 0, 255);
+        }
+    }
+
+    a {
+        display: block;
+        list-style: none;
+        color: #000;
+        text-decoration: none;
+        text-transform: capitalize;
+        &:hover{
+            background-color: #000;
+            color: #fff;
+        }
+    }
+}

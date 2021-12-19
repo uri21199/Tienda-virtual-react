@@ -1,0 +1,17 @@
+.linkStore{
+
+    a{
+        text-decoration: none;
+        color: #000;
+        &:hover::after{
+            height: 2px;
+            width: 25%;
+            max-width: 100px;
+            content: "";
+            display: block;
+            position: relative;
+            background-color: rgb(55, 0, 255);
+        }
+    }
+
+}
