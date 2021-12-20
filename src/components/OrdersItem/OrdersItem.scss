@@ -1,0 +1,47 @@
+.order {
+
+    display: flex;
+    justify-content: flex-start;
+    border: 2px dashed #000;
+    margin: 5px;
+
+    .orderInfo {
+        margin: 15px;
+
+        h5 {
+            text-transform: uppercase;
+        }
+
+        span {
+            text-decoration: underline;
+        }
+    }
+
+    .orderProduct {
+
+        margin-left: 100px;
+        margin-top: 15px;
+
+        h5 {
+            text-transform: uppercase;
+        }
+
+        .orderList {
+            display: flex;
+            flex-direction: column;
+
+            div {
+
+                display: flex;
+                justify-content: space-evenly;
+                width: 500px;
+
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+        }
+    }
+
+}

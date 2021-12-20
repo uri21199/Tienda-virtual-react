@@ -8,7 +8,7 @@ const Loading = () => {
             <div>
                 <img src={loading} alt="Cargando" />
             </div>
-            <p>Cargando productos...</p>
+            <p>Cargando...</p>
         </div>
     )
 }

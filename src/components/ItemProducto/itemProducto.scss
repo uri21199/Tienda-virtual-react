@@ -9,6 +9,7 @@
     &:hover {
         border: 2px solid #000;
     }
+    animation: productEntrance 1.5s ease-in-out;
 
     img {
         width: 100%;
@@ -56,5 +57,24 @@
         color: rgb(255, 0, 0);
         font-size: .9em;
         font-weight: bold;
+    }
+}
+
+@keyframes productEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    50% {
+        opacity: 0.75;
+        transform: translateY(0px);
+    }
+    75% {
+        opacity: .9;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

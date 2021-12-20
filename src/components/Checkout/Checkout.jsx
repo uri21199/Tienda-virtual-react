@@ -6,9 +6,11 @@ import { Link } from 'react-router-dom'
 import './Checkout.scss'
 import * as Yup from 'yup'
 import { Formik } from 'formik'
+import { UserContext } from '../../context/UserContext'
 
 const initialValues = {
     nombre: '',
+    apellido: '',
     email: '',
     tel: '',
 }
@@ -19,7 +21,10 @@ const schema = Yup.object().shape({
         .required('El nombre es obligatorio')
         .min(2, 'El nombre debe tener al menos 2 caracteres')
         .max(30, 'El nombre debe tener como máximo 30 caracteres'),
-    
+    apellido: Yup.string()
+        .required('El apellido es obligatorio')
+        .min(2, 'El nombre debe tener al menos 2 caracteres')
+        .max(30, 'El nombre debe tener como máximo 30 caracteres'),
     email: Yup.string()
         .email('El email no es válido')
         .required('El email es obligatorio'),
@@ -34,8 +39,8 @@ const schema = Yup.object().shape({
 const Checkout = () => {
 
     const {cart, totalPrice, emptyCart, setCounter} = useContext(CartContext)
+    const {user} = useContext(UserContext)
     const [orderId, setOrderId] = useState(null)
-
 
     const handleSubmit = (values) => {
 
@@ -43,9 +48,10 @@ const Checkout = () => {
             buyer: values,
             items: cart,
             total: totalPrice(),
-            date: Timestamp.fromDate(new Date())
+            date: Timestamp.fromDate(new Date()),
+            user: user.email
         }
-
+        console.log(user)
         const ordersRef = collection(db, "orders")
 
         addDoc(ordersRef, order)
@@ -89,7 +95,15 @@ const Checkout = () => {
                                     placeholder="Nombre"
                                 />
                                 {formik.errors.nombre && formik.touched.nombre && <p className='text-danger fw-bold'>{formik.errors.nombre}</p>}
-
+                                <input
+                                    name="apellido"
+                                    onChange={formik.handleChange}
+                                    value={formik.values.apellido}
+                                    className='form-control my-2'
+                                    type="text"
+                                    placeholder="Apellido"
+                                />
+                                {formik.errors.apellido && formik.touched.apellido && <p className='text-danger fw-bold'>{formik.errors.apellido}</p>}
                                 <input
                                     name='email'
                                     onChange={formik.handleChange}

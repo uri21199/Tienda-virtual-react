@@ -6,11 +6,23 @@ import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 import { UserContext } from '../../context/UserContext'
 import person from '../../assets/images/iconos/usuario.png'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 const Navbar = () => {
 
     const {cart} = useContext(CartContext)
     const {logged, logout} = useContext(UserContext)
+
+    const history = useHistory()
+
+    const handleClick = () => {
+        history.push("/")
+    }
+
+    const cerrarSesion = () => {
+        logout()
+        handleClick()
+    }
 
 return (
 <>
@@ -46,11 +58,12 @@ return (
                 </span>
                 <ul class="dropdown-menu profileDropdown" aria-labelledby="dropdownMenuButton3">
                     <li><p>Perfil</p></li>
-                    <li onClick={logout}>Cerrar sesión</li>
+                    <li><Link to="/orders">Mis ordenes</Link></li>
+                    <li onClick={cerrarSesion}>Cerrar sesión</li>
                 </ul>
             </>
             :
-            <Link to="/SignUp">Ingresar</Link>
+            <Link to="/login">Iniciar sesión</Link>
             }
             </div>
         </div>

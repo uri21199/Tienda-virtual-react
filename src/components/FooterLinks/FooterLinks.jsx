@@ -1,16 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './FooterLinks.scss'
+import useProducts from '../../hooks/useProducts'
 
 const FooterLinks = () => {
+
+    const {data} = useProducts("productos")
+
+    const categories = data.map(product => product.category)
+
+    const uniqueCategories = [...new Set(categories)]
+
     return (
         <>
             <div className="linkStore mt-5 d-flex flex-column">
                 <h5 className="mb-4">Productos</h5>
-                <Link to="/category/camisetas" className="mb-2">Camisetas</Link>
-                <Link to="/category/abrigos" className="mb-2">Abrigos</Link>
-                <Link to="/category/pantalon" className="mb-2">Pantalón</Link>
-                <Link to="/category/short" className="mb-2">Short</Link>
+                    {
+                        uniqueCategories.map(category => (
+                            <Link to={`/category/${category}`} className="mb-2" key={category}>{category}</Link>
+                        ))
+                    }
             </div>
             <div className="linkStore mt-5 d-flex flex-column">
                 <h5 className="mb-4">Contacto</h5>

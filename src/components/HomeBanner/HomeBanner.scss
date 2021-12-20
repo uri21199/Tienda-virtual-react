@@ -7,6 +7,7 @@
     align-items: center;
     background: rgb(9,9,121);
     background: linear-gradient(240deg, rgba(9,9,121,0.8631827731092436) 30%, rgba(242,244,0,0.8323704481792717) 50%, rgba(9,9,121,0.773546918767507) 95%);
+    animation: entrance 1.5s ease-in-out;
 
     h1, h5{
         color: #000;
@@ -33,5 +34,24 @@
         height: 350px;
         object-fit: cover;
         border: 5px solid #000;
+    }
+}
+
+@keyframes entrance {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    50% {
+        opacity: 0.75;
+        transform: translateY(0px);
+    }
+    75% {
+        opacity: .9;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

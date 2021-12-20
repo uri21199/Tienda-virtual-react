@@ -10,7 +10,7 @@ const FooterBanner = () => {
                     <p>Suscribete y enterate de nuestras novedades obteniendo hasta descuentos del 30%</p>
                 </div>
                 <div className="subscribeSecond">
-                    <Link to="/contact" className="py-2 px-3">Suscribirse a nuestra tienda</Link>
+                    <Link to="/signup" className="py-2 px-3">Suscribirse a nuestra tienda</Link>
                 </div>
             </div>
         </>

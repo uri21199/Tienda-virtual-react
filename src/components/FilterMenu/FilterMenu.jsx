@@ -6,8 +6,6 @@ import './FilterMenu.scss'
 const FilterMenu = () => {
 
     const {data} = useProducts("productos")
-    
-    //traer las categorias
 
     const categories = data.map(product => product.category)
 

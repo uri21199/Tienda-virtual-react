@@ -12,6 +12,7 @@ import Checkout from './components/Checkout/Checkout';
 import SignUp from './components/SignUp/SignUp';
 import UserContextProvider from './context/UserContext';
 import Login from './components/Login/Login';
+import Orders from './containers/Orders/Orders';
 
 function App() {
 	return (
@@ -34,6 +35,7 @@ function App() {
 					<Route path="/checkout" component={Checkout}/>
 					<Route path="/signup" component={SignUp}/>
 					<Route path="/login" component={Login}/>
+					<Route path="/orders" component={Orders}/>
 				</Switch>
 				<FooterContainer/>
 			</Router> 
