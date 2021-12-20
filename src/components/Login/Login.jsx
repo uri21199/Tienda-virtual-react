@@ -8,6 +8,7 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+
     const {login} = useContext(UserContext);
 
     const history = useHistory()
@@ -33,7 +34,7 @@ const Login = () => {
                 </div>
                 <div>
                     <label>Contraseña</label>
-                    <input type="text" className="form-control" id="password" name = "password" onChange={(e)=> setPassword(e.target.value) }/>
+                    <input type="password" className="form-control" id="password" name = "password" onChange={(e)=> setPassword(e.target.value)}/>
                 </div>
                 <button type="button" className="btnSignUp" onClick={iniciar}>Iniciar sesión</button>
             </div>

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
-import { addDoc, collection, Timestamp } from "firebase/firestore"
+import { addDoc, collection, doc, getDoc, Timestamp, updateDoc } from "firebase/firestore"
 import db from '../../firebase/config'
 import { Link } from 'react-router-dom'
 import './Checkout.scss'
@@ -57,10 +57,24 @@ const Checkout = () => {
         addDoc(ordersRef, order)
             .then((res) => {
                 setOrderId(res.id)
+                const productsRef = collection(db, "productos")
+                //actualizar el stock de los productos en la base de datos
+                cart.forEach(item => {
+                    const docRef = doc(productsRef, item.id)
+        
+                    getDoc(docRef)
+                        .then(doc => {
+                            updateDoc(docRef, {
+                                stock: doc.data().stock - item.cantidad
+                            })
+                        })
+                })
                 emptyCart()
                 setCounter(0)
             })
         }
+
+
 
 
     return (

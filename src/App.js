@@ -13,6 +13,7 @@ import SignUp from './components/SignUp/SignUp';
 import UserContextProvider from './context/UserContext';
 import Login from './components/Login/Login';
 import Orders from './containers/Orders/Orders';
+import ProfileData from './components/ProfileData/ProfileData';
 
 function App() {
 	return (
@@ -36,6 +37,7 @@ function App() {
 					<Route path="/signup" component={SignUp}/>
 					<Route path="/login" component={Login}/>
 					<Route path="/orders" component={Orders}/>
+					<Route path="/profile" component={ProfileData}/>
 				</Switch>
 				<FooterContainer/>
 			</Router> 

@@ -10,6 +10,7 @@ const SignUp = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [password2, setPassword2] = useState("");
 
     const history = useHistory()
 
@@ -18,10 +19,14 @@ const SignUp = () => {
     }
 
     const handleSignup = () => {
-        signUp(email, password)
-        setTimeout(() => {
-            handleClick()
-        }, 1000)
+        if (password === password2) {
+            signUp(email, password)
+            setTimeout(() => {
+                handleClick()
+            }, 1000)
+        } else {
+            document.getElementById('error').innerHTML = 'Las contraseñas no coinciden'
+        }
     }
 
     return (
@@ -34,7 +39,12 @@ const SignUp = () => {
                 </div>
                 <div>
                     <label>Contraseña</label>
-                    <input type="text" className="form-control" id="password" name = "password" onChange={(e)=> setPassword(e.target.value) }/>
+                    <input type="password" className="form-control" id="password" name = "password" onChange={(e)=> setPassword(e.target.value) }/>
+                </div>
+                <div>
+                    <label>Repetir contraseña</label>
+                    <input type="password" className="form-control" id="password" name = "password2" onChange={(e)=> setPassword2(e.target.value)}/>
+                    <p id="error"></p>
                 </div>
                 <button type="button" className="btnSignUp" onClick={handleSignup}>Registrarse</button>
             </div>

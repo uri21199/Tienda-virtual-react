@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth'
 import React, { createContext, useEffect, useState } from 'react'
 import { auth } from '../firebase/config'
 import swal from 'sweetalert'
@@ -74,8 +74,24 @@ const UserContextProvider = ({children}) => {
         []
     )
 
+    const updateProfile = (name, lastname, email) => {
+        updateProfile(auth.currentUser, {
+            displayName: name,
+            email: email,
+            lastName: lastname
+        }).then(()=> {
+            swal ({
+                text: 'Perfil actualizado',
+                icon: 'success',
+                timer: 2000
+            })
+        }).catch((error)=> {
+            alert(error.message);
+        })
+    }
+
     return ( 
-    <UserContext.Provider value = {{user, logged, login, logout, signUp}} > 
+    <UserContext.Provider value = {{user, logged, login, logout, signUp, updateProfile}} > 
         {children} 
     </UserContext.Provider>
     )

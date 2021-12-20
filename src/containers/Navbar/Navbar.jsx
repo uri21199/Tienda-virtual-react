@@ -57,7 +57,7 @@ return (
                     <img src={person} className='userLogo' alt="" />
                 </span>
                 <ul class="dropdown-menu profileDropdown" aria-labelledby="dropdownMenuButton3">
-                    <li><p>Perfil</p></li>
+                    <li><Link to="profile">Perfil</Link></li>
                     <li><Link to="/orders">Mis ordenes</Link></li>
                     <li onClick={cerrarSesion}>Cerrar sesión</li>
                 </ul>
