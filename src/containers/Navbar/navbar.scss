@@ -59,7 +59,7 @@
         }
     }
 
-    .login {
+    .SignUp {
         display: flex;
         align-items: center;
         margin-bottom: .5em;
@@ -77,12 +77,31 @@
 
         img {
             margin-right: 5px;
+            width: 30px;
+            height: 30px;
         }
 
         a {
             text-decoration: none;
             color: #000;
             font-family: 'Oswald', sans-serif;
+        }
+    }
+
+    span {
+        cursor: pointer;
+    }
+
+    .profileDropdown {
+
+        li {
+            margin: 10px;
+            cursor: pointer;
+            &:hover{
+                background-color: #000;
+                color: #fff;
+                text-decoration: underline;
+            }
         }
     }
 }

@@ -23,6 +23,10 @@
         color: rgb(71, 71, 71);
     }
 
+    .prodPrice.discount {
+        text-decoration: line-through;
+    }
+
     .prodTitle{
         text-align: start;
         font-size: .9em;
@@ -34,5 +38,23 @@
         font-size: .75em;
         margin-left: 5px;
         color: rgb(71, 71, 71);
+    }
+
+    .prodDiscount {
+        position: absolute;
+        bottom: 110px;
+        left: 10px;
+        color: rgb(42, 126, 42);
+        font-size: .8em;
+        font-weight: bold;
+    }
+
+    .priceDiscounted{
+        position: absolute;
+        bottom: 90px;
+        left: 60px;
+        color: rgb(255, 0, 0);
+        font-size: .9em;
+        font-weight: bold;
     }
 }

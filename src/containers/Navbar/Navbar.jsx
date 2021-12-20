@@ -4,10 +4,13 @@ import './navbar.scss'
 import { CartWidget } from '../../components/CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
+import { UserContext } from '../../context/UserContext'
+import person from '../../assets/images/iconos/usuario.png'
 
 const Navbar = () => {
 
     const {cart} = useContext(CartContext)
+    const {logged, logout} = useContext(UserContext)
 
 return (
 <>
@@ -30,11 +33,25 @@ return (
                     <li className="items"><Link to="/contact">Contacto</Link></li>
                 </ul>
             </nav>
-            <div className="login">
+            <div className="SignUp">
                 {
                     cart.length > 0 && <CartWidget/>
                 }
-                <Link to="/login">Ingresar</Link>
+                {
+            logged 
+            ? 
+            <>
+                <span id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src={person} className='userLogo' alt="" />
+                </span>
+                <ul class="dropdown-menu profileDropdown" aria-labelledby="dropdownMenuButton3">
+                    <li><p>Perfil</p></li>
+                    <li onClick={logout}>Cerrar sesión</li>
+                </ul>
+            </>
+            :
+            <Link to="/SignUp">Ingresar</Link>
+            }
             </div>
         </div>
     </header>

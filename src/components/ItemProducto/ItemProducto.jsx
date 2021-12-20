@@ -11,14 +11,22 @@ const ItemProducto = ({producto}) => {
         history.push(`/detail/${producto.id}`)
     }
 
-    return (
-        <div className="product" onClick={handleClick}>
-            <img src={producto.image} alt={producto.name} />
-            <p className="prodPrice">{producto.price}</p>
+    if (producto.stock > 0){
+        return (
+            <div className="product" onClick={handleClick}>
+            <img src={producto.image} alt={producto.name} style={producto.discount ? {opacity: '.9'} : {}}/>
+            
+            {
+                producto.discount ? <><p className="prodDiscount">{producto.percentage * 100}%</p>
+                <p className="prodPrice discount">{producto.price}</p>
+                <p className='priceDiscounted'>{(producto.price - (producto.price * producto.percentage)).toFixed(3)}</p>
+                </> : <p className="prodPrice">{producto.price}</p>
+            }
             <p className="prodTitle">{producto.name}</p>
             <p className="prodCategory">{(producto.category).toUpperCase()}</p>
-        </div>
-    )
+            </div>
+        )
+    }
 }
 
 export default ItemProducto

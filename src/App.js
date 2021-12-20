@@ -9,10 +9,14 @@ import HomePageContainer from './containers/HomePageContainer/HomePageContainer'
 import CartContextProvider from './context/CartContext';
 import CartView from './components/CartView/CartView';
 import Checkout from './components/Checkout/Checkout';
+import SignUp from './components/SignUp/SignUp';
+import UserContextProvider from './context/UserContext';
+import Login from './components/Login/Login';
 
 function App() {
 	return (
 		<>
+			<UserContextProvider>
 			<CartContextProvider>
 			<Router>
 				<Navbar/>		
@@ -28,10 +32,13 @@ function App() {
 					<Route path="/contact" component={ContactContainer}/>
 					<Route path="/cart" component={CartView}/>
 					<Route path="/checkout" component={Checkout}/>
+					<Route path="/signup" component={SignUp}/>
+					<Route path="/login" component={Login}/>
 				</Switch>
 				<FooterContainer/>
 			</Router> 
 			</CartContextProvider>
+			</UserContextProvider>
 		</>
 	);
 }

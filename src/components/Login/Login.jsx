@@ -1,26 +1,30 @@
-import { Formik } from 'formik'
-import React from 'react'
-import './Login.scss'
+import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { UserContext } from '../../context/UserContext';
 
 const Login = () => {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const {login} = useContext(UserContext);
+
+
     return (
-        <div>
-            <h5>Login</h5>
-
-            <Formik>
-                <form className='loginForm'>
-                    <div>
-                        <label htmlFor="exampleInputEmail1">Correo electrónico</label>
-                        <input type="email" className="form-control"/>
-                    </div>
-                    <div>
-                        <label htmlFor="exampleInputPassword1">Contraseña</label>
-                        <input type="password" className="form-control"/>
-                    </div>
-                    <button type="submit" className="btn btn-primary my-3">Ingresar</button>
-                </form>
-
-            </Formik>
+        <div className='signUp'>
+            <h3>Inicia sesión</h3>
+            <div>
+                <div>
+                    <label>Email</label>
+                    <input type="text" className="form-control" id="email" name = "email" onChange={(e)=> setEmail(e.target.value)} />
+                </div>
+                <div>
+                    <label>Contraseña</label>
+                    <input type="text" className="form-control" id="password" name = "password" onChange={(e)=> setPassword(e.target.value) }/>
+                </div>
+                <button type="button" className="btnSignUp" onClick={() => login(email, password)}>Iniciar sesión</button>
+            </div>
+            <p>¿No tienes cuenta? <Link to="/signup">Registrate</Link></p>
         </div>
     )
 }
