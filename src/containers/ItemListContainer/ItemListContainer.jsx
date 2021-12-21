@@ -1,5 +1,5 @@
 import React from "react"
-import { useParams } from "react-router"
+import { useParams } from "react-router-dom"
 import ItemList from "../../components/ItemList/ItemList"
 import Loading from "../../components/Loading/Loading"
 import './itemListContainer.scss'

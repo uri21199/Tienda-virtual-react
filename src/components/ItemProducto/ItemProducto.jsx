@@ -11,9 +11,9 @@ const ItemProducto = ({producto}) => {
         history.push(`/detail/${producto.id}`)
     }
 
-    if (producto.stock > 0){
+    if (producto.stock >= 0){
         return (
-            <div className="product" onClick={handleClick}>
+            <div className="product" onClick={handleClick} style={producto.stock === 0 ? {display: "none"} : {}}>
             <img src={producto.image} alt={producto.name} style={producto.discount ? {opacity: '.9'} : {}}/>
             
             {

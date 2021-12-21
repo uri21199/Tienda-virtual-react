@@ -74,21 +74,7 @@ const UserContextProvider = ({children}) => {
         []
     )
 
-    const updateProfile = (name, lastname, email) => {
-        updateProfile(auth.currentUser, {
-            displayName: name,
-            email: email,
-            lastName: lastname
-        }).then(()=> {
-            swal ({
-                text: 'Perfil actualizado',
-                icon: 'success',
-                timer: 2000
-            })
-        }).catch((error)=> {
-            alert(error.message);
-        })
-    }
+
 
     return ( 
     <UserContext.Provider value = {{user, logged, login, logout, signUp, updateProfile}} > 
