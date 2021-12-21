@@ -15,7 +15,7 @@ const OrdersItem = () => {
             {
                 data.map (product => (
                     <>
-                    <div key={product.id} className='order mt-3'>
+                    <div key={product.id} className='order mt-3 d-flex justify-content-between'>
                         <div className='orderInfo'>
                             <h5><span>Nombre del cliente:</span> {`${product.buyer.nombre} ${product.buyer.apellido}`}</h5>
                             <p><span>Email de contacto:</span> {product.buyer.email}</p>
