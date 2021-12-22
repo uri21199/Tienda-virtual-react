@@ -1,0 +1,52 @@
+.formContact {
+    width: 90%;
+    margin: 0 auto;
+    display: flex; 
+    flex-wrap: wrap;
+    align-items: center;
+    
+    div{
+        display: flex;
+        flex-direction: column;
+        
+        label{
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .formInput {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+    }
+}
+
+.textareaInput {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 25px 75px;
+
+    label {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    textarea {
+        width: 90%;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+    }
+
+}
+
+.inputSubmit {
+    border: 1px solid yellow;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 600;
+    padding: 5px 15px;
+    margin: 10px 80px;
+}
