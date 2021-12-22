@@ -61,7 +61,6 @@ const Checkout = () => {
                 setLoader(true)
                 setOrderId(res.id)
                 const productsRef = collection(db, "productos")
-                //actualizar el stock de los productos en la base de datos
                 cart.forEach(item => {
                     const docRef = doc(productsRef, item.id)
         

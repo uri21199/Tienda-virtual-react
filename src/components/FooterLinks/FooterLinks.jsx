@@ -25,11 +25,8 @@ const FooterLinks = () => {
                 <h5 className="mb-4">Contacto</h5>
                 <Link to="/contact" className="mb-2">Contactanos</Link>
                 <Link to="/contact" className="mb-2">Reclamos</Link>
-                <Link to="/contact" className="mb-2">Sugerencias</Link>
-                <Link to="/contact" className="mb-2">Dudas frecuentes</Link>
                 <Link to="/contact" className="mb-2">Cambios y devoluciones</Link>
                 <Link to="/contact" className="mb-2">Cambios en tienda</Link>
-                <Link to="/contact" className="mb-2">Guía de talles</Link>
             </div>
             <div className="linkStore mt-5 d-flex flex-column">
                 <h5 className="mb-4">Redes sociales</h5>

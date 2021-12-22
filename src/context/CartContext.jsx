@@ -51,7 +51,17 @@ const CartContextProvider = ({children}) => {
     }
 
     const totalPrice = () => {
-        return cart.reduce((acc, prod) => acc + prod.price * prod.cantidad, 0)
+        //si algun producto tiene descuento, se le resta el descuento al precio. Si no tiene descuento, se le suma el precio
+        return cart.reduce((acc, prod) => {
+            if (prod.percentage > 0) {
+                return acc + (prod.price - (prod.price * prod.percentage)) * prod.cantidad
+            } else {
+                return acc + prod.price * prod.cantidad
+            }
+        }
+        , 0)
+        
+        
     }
 
     const isInCart = (id) => {
