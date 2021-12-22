@@ -7,11 +7,17 @@ import { CartContext } from '../../context/CartContext'
 import { UserContext } from '../../context/UserContext'
 import person from '../../assets/images/iconos/usuario.png'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { useModal } from '../../hooks/useModal'
+import Modal from '../../components/Modal/Modal'
 
 const Navbar = () => {
 
     const {cart} = useContext(CartContext)
     const {logged, logout} = useContext(UserContext)
+    const [isOpenModal1, OpenModal1, CloseModal1] = useModal(false)
+    const [isOpenModal2, OpenModal2, CloseModal2] = useModal(false)
+    const [isOpenModal3, OpenModal3, CloseModal3] = useModal(false)
+
 
     const history = useHistory()
 
@@ -28,9 +34,9 @@ return (
 <>
     <header>
         <div className="headerTop">
-            <p>Envíos a todo el pais</p>
-            <p>6 y 12 cuotas sin interés</p>
-            <p>Primer cambio gratis</p>
+            <p onClick={OpenModal1}>Envíos a todo el pais</p>
+            <p onClick={OpenModal2}>6 y 12 cuotas sin interés</p>
+            <p onClick={OpenModal3}>Primer cambio gratis</p>
         </div>
         <div className="headerBajo">
             <div className="logo">
@@ -68,6 +74,21 @@ return (
             </div>
         </div>
     </header>
+
+
+
+            <Modal isOpen={isOpenModal1} closeModal={CloseModal1}>
+                <h3>Envíos a todo el país</h3>
+                <p>Hacemos envíos a todos los sectores del país, el monto del mismo varía según la cantidad de productos y la distancia.</p>
+            </Modal>
+            <Modal isOpen={isOpenModal2} closeModal={CloseModal2}>
+                <h3 className='fw-bold'>Pago en línea</h3>
+                <p>Podés pagar con tu tarjeta Visa, MasterCard o American Express, al hacerlo, ¡podrás pagar hasta en 6 y 12 cuotas sin interés! También es posible efectuar tu pago con Pago Fácil y Rapipago.</p>
+            </Modal>
+            <Modal isOpen={isOpenModal3} closeModal={CloseModal3}>
+                <h3>Primer cambio sin costo</h3>
+                <p>¿Tuviste problemas con la prenda? ¿Problemas con el talle? No te preocupes, te ofrecemos un primer cambio totalmente gratis dirigiéndote a la sucursal más cercana.</p>
+            </Modal>
 </>
 )
 }
