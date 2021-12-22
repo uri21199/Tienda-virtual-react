@@ -1,0 +1,44 @@
+.modalPropio{
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    .modalContainer{
+        position: relative;
+        min-width: 300px;
+        max-width: 600px;
+        min-height: 100px;
+        max-height: 500px;
+        overflow-y: auto;
+        background-color: #fff;
+        padding: 20px;
+        border: 3px solid #000;
+        outline: 4px solid #fff;
+
+        h3{
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .modalClose{
+            position: absolute;
+            top: 24px;
+            right: 20px;
+            border: 1px solid #000;
+        }
+    }
+}
+
+.modalPropio.is-open{
+    display: flex;
+}
+
+
+
