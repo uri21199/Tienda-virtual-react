@@ -9,6 +9,7 @@ import person from '../../assets/images/iconos/usuario.png'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { useModal } from '../../hooks/useModal'
 import Modal from '../../components/Modal/Modal'
+import swal from 'sweetalert'
 
 const Navbar = () => {
 
@@ -27,6 +28,12 @@ const Navbar = () => {
 
     const cerrarSesion = () => {
         logout()
+        swal ({
+            title: 'Sesión cerrada',
+            text: 'Vuelve pronto',
+            icon: 'success',
+            timer: 2000
+        })
         handleClick()
     }
 

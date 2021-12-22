@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { UserContext } from '../../context/UserContext'
 import useProducts from '../../hooks/useProducts'
 import './OrdersItem.scss'
 
 const OrdersItem = () => {
 
-    const {user, userEmail} = useContext(UserContext)
+    const {userEmail} = useContext(UserContext)
 
     const {data} = useProducts("orders", "user", userEmail)
 
@@ -24,7 +24,7 @@ const OrdersItem = () => {
                             <div className='orderInfo'>
                                 <h5><span>Nombre del cliente:</span> {`${product.buyer.nombre} ${product.buyer.apellido}`}</h5>
                                 <p><span>Email de contacto:</span> {product.buyer.email}</p>
-                                <p><span>Monto total pagado:</span> ${product.total}</p>
+                                <p><span>Monto total pagado:</span> ${(product.total).toFixed(3)}</p>
                                 <p><span>Fecha de emisión de la orden:</span> {product.date.toDate().toLocaleDateString()}</p>
                             </div>
                             <div className='orderProduct'>

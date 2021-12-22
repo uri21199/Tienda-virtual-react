@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import swal from 'sweetalert';
 import { UserContext } from '../../context/UserContext';
 
 const Login = () => {
@@ -19,6 +20,12 @@ const Login = () => {
 
     const iniciar = () => {
         login(email, password)
+        swal({
+            title: 'Bienvenido',
+            text: 'Iniciaste sesión correctamente',
+            icon: 'success',
+            timer: 2000
+        })
         setTimeout(() => {
             handleClick()
         }, 1000)

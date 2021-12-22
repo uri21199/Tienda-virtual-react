@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, deleteUser, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth'
 import React, { createContext, useEffect, useState } from 'react'
 import { auth } from '../firebase/config'
 import swal from 'sweetalert'
@@ -15,7 +15,6 @@ const UserContextProvider = ({children}) => {
     
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-        const user = userCredential.user;
         swal ({
             title: 'Registro exitoso',
             text: 'Bienvenido a la tienda',
@@ -24,7 +23,6 @@ const UserContextProvider = ({children}) => {
         })
     })
     .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage)
     });
@@ -40,7 +38,6 @@ const UserContextProvider = ({children}) => {
           // ...
         })
         .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage);
         });
@@ -76,10 +73,20 @@ const UserContextProvider = ({children}) => {
         []
     )
 
-
+    const dropOut = () => {
+        let confirmar = window.confirm('¿Estás seguro de que quieres eliminar tu cuenta?')
+        if (confirmar) {
+            deleteUser(user).then(() => {
+                // User deleted.
+              }).catch((error) => {
+                // An error ocurred
+                // ...
+              });
+    }
+    }
 
     return ( 
-    <UserContext.Provider value = {{user, logged,userEmail, login, logout, signUp, updateProfile}} > 
+    <UserContext.Provider value = {{user, logged, userEmail, login, logout, signUp, updateProfile, dropOut}} > 
         {children} 
     </UserContext.Provider>
     )

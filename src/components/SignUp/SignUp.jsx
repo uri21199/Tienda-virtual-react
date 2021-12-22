@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import swal from 'sweetalert';
 import { UserContext } from '../../context/UserContext'
 import './SignUp.scss'
 
@@ -24,6 +25,12 @@ const SignUp = () => {
             setTimeout(() => {
                 handleClick()
             }, 1000)
+            swal ({
+                title: 'Registro exitoso',
+                text: 'Bienvenido a la tienda',
+                icon: 'success',
+                timer: 2000
+            })
         } else {
             document.getElementById('error').innerHTML = 'Las contraseñas no coinciden'
         }
