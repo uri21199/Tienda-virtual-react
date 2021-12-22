@@ -8,6 +8,7 @@ export const UserContext = createContext()
 const UserContextProvider = ({children}) => {
 
     const [user, setUser] = useState()
+    const [userEmail, setUserEmail] = useState()
     const [logged, setLogged] = useState(false)
 
     const signUp = (email, password) => {
@@ -35,6 +36,7 @@ const UserContextProvider = ({children}) => {
           // Signed in
         const user = userCredential.user;
         setUser(user);
+        setUserEmail(user.email);
           // ...
         })
         .catch((error) => {
@@ -77,7 +79,7 @@ const UserContextProvider = ({children}) => {
 
 
     return ( 
-    <UserContext.Provider value = {{user, logged, login, logout, signUp, updateProfile}} > 
+    <UserContext.Provider value = {{user, logged,userEmail, login, logout, signUp, updateProfile}} > 
         {children} 
     </UserContext.Provider>
     )
