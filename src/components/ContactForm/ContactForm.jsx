@@ -1,12 +1,12 @@
 import React from 'react'
 import emailjs from 'emailjs-com'
 import './ContactForm.scss'
+import swal from 'sweetalert'
 
 const ContactForm = () => {
 
     const sendEmail = (e) => {
         e.preventDefault()
-
         emailjs.sendForm('service_976qi77', 'template_83y6spx', e.target, 'user_0U6P75303pRyXOtIpAlWk')
             .then((result) => {
                 console.log(result);
@@ -14,7 +14,7 @@ const ContactForm = () => {
             .catch((error) => {
                 console.log(error);
             });
-
+        swal("¡Gracias!", "Su mensaje ha sido enviado correctamente, nos pondremos en contacto a la brevedad.", "success")
         e.target.reset()
     }
 

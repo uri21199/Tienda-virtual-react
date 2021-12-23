@@ -80,6 +80,7 @@ const Checkout = () => {
             alert("No hay suficiente stock para la cantidad solicitada")
         }
     })}
+    
 
     return (
         <div>
