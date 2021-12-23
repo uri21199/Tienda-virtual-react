@@ -62,4 +62,7 @@ Haciendo clic en el logo se puede navegar a tres sitios:
  2. Mis órdenes: Si el usuario realizo compras se pueden ver las órdenes.
  3. Cerrar sesión: Se puede cerrar la sesión del usuario.
  
+ ##### Checkout
+ Se finaliza la compra, los productos son descontados del stock general y también se descuenta el stock por talle.
+ 
 **¡ESTO FUE TODO Y A SEGUIR APRENDIENDO!**
