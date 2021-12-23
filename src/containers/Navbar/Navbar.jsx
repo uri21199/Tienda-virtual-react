@@ -57,9 +57,9 @@ return (
             </div>
             <nav className="menu">
                 <Menu open={mobileMenu}>
-                    <li className="items"><Link to="/">Inicio</Link></li>
-                    <li className="items"><Link to="/products">Productos</Link></li>
-                    <li className="items"><Link to="/contact">Contacto</Link></li>
+                    <li className="items"><Link to="/" onClick={() => setMobileMenu(!mobileMenu)}>Inicio</Link></li>
+                    <li className="items"><Link to="/products" onClick={() => setMobileMenu(!mobileMenu)}>Productos</Link></li>
+                    <li className="items"><Link to="/contact" onClick={() => setMobileMenu(!mobileMenu)}>Contacto</Link></li>
                 </Menu>
 
             </nav>

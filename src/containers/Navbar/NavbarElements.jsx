@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Menu = styled.ul`
 
   display: flex;
-
+  z-index: 100000;
   @media screen and (max-width: 768px) {
     background-color: rgba(0, 0, 0, 0.75);
     position: fixed;
