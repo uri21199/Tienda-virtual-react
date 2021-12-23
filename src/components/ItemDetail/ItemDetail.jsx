@@ -38,7 +38,6 @@ const ItemDetail = ({products}) => {
     
     if (size !== '') {
         addSize()
-        console.log(size)
     }
 
     const cambiar = (e) => {

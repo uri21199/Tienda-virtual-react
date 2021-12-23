@@ -38,12 +38,12 @@ const Checkout = () => {
 
     const handleSubmit = (values) => {
 
-        const order = {
-            buyer: values,
-            items: cart,
-            total: totalPrice(),
-            date: Timestamp.fromDate(new Date())
-        }
+    const order = {
+        buyer: values,
+        items: cart,
+        total: totalPrice(),
+        date: Timestamp.fromDate(new Date())
+    }
 
     const batch = writeBatch(db)
     const ordersRef = collection(db, "orders")
@@ -56,7 +56,6 @@ const Checkout = () => {
         res.docs.forEach((doc) => {
             const itemInCart = cart.find((prod) => prod.id === doc.id)
             const refStock = doc.data().sizeStock
-            console.log(refStock)
 
             if (doc.data().sizeStock[itemInCart.talla] >= itemInCart.cantidad){
                 batch.update(doc.ref, {
@@ -66,8 +65,6 @@ const Checkout = () => {
                         [itemInCart.talla]: refStock[itemInCart.talla] - itemInCart.cantidad
                     }
                 })
-                console.log(doc.data().sizeStock[itemInCart.talla])
-                console.log(itemInCart.cantidad)
             } else {
                 outOfStock.push(itemInCart)
             }
@@ -80,7 +77,6 @@ const Checkout = () => {
                 emptyCart()
             })
         } else {
-            console.log(outOfStock)
             alert("No hay suficiente stock para la cantidad solicitada")
         }
     })}
@@ -138,7 +134,7 @@ const Checkout = () => {
                                 />
                                 {formik.errors.tel && formik.touched.tel && <p className='text-danger fw-bold'>{formik.errors.tel}</p>}
 
-                                <button type='submit' className='btnSend'>Enviar</button>
+                                <button type='submit' className='btnSend'>Finalizar compra</button>
                             </form>
                         )}
                     </Formik>

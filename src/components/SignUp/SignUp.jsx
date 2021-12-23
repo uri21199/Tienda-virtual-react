@@ -11,7 +11,6 @@ const SignUp = () => {
     const {signUp} = useContext(UserContext);
 
     const [email, setEmail] = useState("");
-    const [nombre, setNombre] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
 
@@ -60,7 +59,7 @@ const SignUp = () => {
             <form onSubmit={sendEmail}>
                 <div>
                 <label>Nombre</label>
-                <input type="text" className="form-control" id="Nombre" name = "name" onChange={(e)=> setNombre(e.target.value)} />
+                <input type="text" className="form-control" id="Nombre" name = "name"/>
                 </div>
                 <div>
                 <label>Email</label>

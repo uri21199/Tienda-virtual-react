@@ -3,5 +3,44 @@
     padding: 0 10px;
     margin: 20px 10px;
     background-color: rgb(200, 0, 0);
+}
 
+.formProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+
+    div {
+        margin: 10px 0;
+        width: 40%;
+
+        input {
+            width: 100%;
+            border: 1px solid #777;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px 0;
+            &::placeholder {
+                color: #000;
+            }
+        }
+    }
+
+    .btnSave {
+        width: 40%;
+        border: 1px solid #777;
+        border-radius: 5px;
+        padding: 5px;
+        margin: 5px 0;
+        background-color: rgb(0, 0, 0);
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+    }
 }
