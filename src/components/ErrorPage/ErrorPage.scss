@@ -1,0 +1,9 @@
+p a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    &:hover {
+        color: #000;
+        text-decoration: underline;
+    }
+}

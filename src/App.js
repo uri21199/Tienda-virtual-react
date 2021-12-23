@@ -14,6 +14,7 @@ import UserContextProvider from './context/UserContext';
 import Login from './components/Login/Login';
 import Orders from './containers/Orders/Orders';
 import ProfileData from './components/ProfileData/ProfileData';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 function App() {
 	return (
@@ -38,6 +39,7 @@ function App() {
 					<Route path="/login" component={Login}/>
 					<Route path="/orders" component={Orders}/>
 					<Route path="/profile" component={ProfileData}/>
+					<Route path="*" component={ErrorPage}/>
 				</Switch>
 				<FooterContainer/>
 			</Router> 
