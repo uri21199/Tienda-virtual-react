@@ -55,3 +55,9 @@
         transform: translateY(0px);
     }
 }
+
+@media screen and (max-width: 800px) {
+    .homePhoto {
+        display: none;
+    }
+}

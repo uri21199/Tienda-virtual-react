@@ -30,7 +30,7 @@ return (
         {
             cantidad > 1 
             ? <>
-                <button onClick={()=> removeFromCart(id)}>Eliminar</button>
+                <button onClick={()=> removeFromCart(id)} className='btnDelete'>Eliminar</button>
                 <button onClick={()=> removeOneProduct(id)} className='btnDelete2'>Eliminar un solo producto</button>
             </>
             : <button onClick={()=> removeFromCart(id)}>Eliminar</button>

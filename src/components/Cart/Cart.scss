@@ -42,6 +42,32 @@
     }
     
     .btnDelete2 {
-        width: 200px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .btnDelete2{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .purchasedProduct {
+        div {
+            width: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .purchasedImg{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .purchasedCount{
+        display: none;
     }
 }

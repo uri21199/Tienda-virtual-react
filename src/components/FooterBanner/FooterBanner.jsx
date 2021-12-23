@@ -5,7 +5,7 @@ import './FooterBanner.scss'
 const FooterBanner = () => {
     return (
         <>
-            <div className="container-fluid justify-content-center align-items-center subscribe">
+            <div className="subscribe">
                 <div className="subscribeFirst mt-3">
                     <p>Suscribete y enterate de nuestras novedades obteniendo hasta descuentos del 30%</p>
                 </div>

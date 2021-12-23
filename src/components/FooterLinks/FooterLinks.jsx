@@ -13,7 +13,7 @@ const FooterLinks = () => {
 
     return (
         <>
-            <div className="linkStore mt-5 d-flex flex-column">
+            <div className="linkStore mt-5">
                 <h5 className="mb-4">Productos</h5>
                     {
                         uniqueCategories.map(category => (
@@ -21,14 +21,14 @@ const FooterLinks = () => {
                         ))
                     }
             </div>
-            <div className="linkStore mt-5 d-flex flex-column">
+            <div className="linkStore mt-5">
                 <h5 className="mb-4">Contacto</h5>
                 <Link to="/contact" className="mb-2">Contactanos</Link>
                 <Link to="/contact" className="mb-2">Reclamos</Link>
                 <Link to="/contact" className="mb-2">Cambios y devoluciones</Link>
                 <Link to="/contact" className="mb-2">Cambios en tienda</Link>
             </div>
-            <div className="linkStore mt-5 d-flex flex-column">
+            <div className="linkStore mt-5">
                 <h5 className="mb-4">Redes sociales</h5>
                 <Link to="/contact" className="mb-2">Instagram</Link>
                 <Link to="/contact" className="mb-2">Facebook</Link>

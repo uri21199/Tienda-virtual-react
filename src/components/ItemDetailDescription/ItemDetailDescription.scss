@@ -7,3 +7,14 @@
     flex-direction: column;
     height: 300px;
 }
+
+@media screen and (max-width: 768px) {
+
+    .detailDescription{
+        margin-top: 40px;
+    }
+
+    .descriptions {
+        height: 700px;
+    }
+}

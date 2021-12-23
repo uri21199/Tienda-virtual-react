@@ -8,7 +8,7 @@ const FooterContainer = () => {
     return (
         <>
         <FooterBanner/>
-        <footer  className="container-fluid d-flex justify-content-around mb-5 footerAll">
+        <footer  className="container-fluid d-flex justify-content-around flex-wrap mb-5 footerAll">
         <FooterIcon/>
         <FooterLinks/>
         </footer>

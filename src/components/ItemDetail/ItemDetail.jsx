@@ -90,13 +90,13 @@ const ItemDetail = ({products}) => {
     } else {
         return (
             <>
-                <div key={products.id} className="d-flex detail mt-4">
-                    <div className="imgDetail w-50">
+                <div key={products.id} className="detail mt-4">
+                    <div className="imgDetail">
                         <img src={products.image} alt="" />
                     </div>
                     <div className="prodDetail">
                         <h3><i>{products.name}</i></h3>
-                        <div className='d-flex align-items-center'>
+                        <div className='priceDetailContainer'>
                         {
                             products.discount ?
                             <>
@@ -109,7 +109,7 @@ const ItemDetail = ({products}) => {
                         </div>
                         {products.discount ? <p className="discountDetail">Aplica a descuentos del <span>{products.percentage * 100}% OFF</span> </p>: <p className="discountDetail">No aplica a descuentos</p>}
                         {
-                            products.discount ? <p>6 cuotas sin interés de ${((prodDiscounted() / 6) * 1000).toFixed(0)} </p> : <p>6 cuotas sin interés de ${(products.price / 6).toFixed(3)} </p>
+                            products.discount ? <p className='cuotas'>6 cuotas sin interés de ${((prodDiscounted() / 6) * 1000).toFixed(0)} </p> : <p className='cuotas'>6 cuotas sin interés de ${(products.price / 6).toFixed(3)} </p>
                         }
                         <h6 className="mt-3">Talles disponibles</h6>
                         <ul className="sizeDetail mt-3">
@@ -119,7 +119,7 @@ const ItemDetail = ({products}) => {
                         </ul>
                         {
                             comprar && quantity > 0
-                                ? <div className='d-flex align-items-center justify-content-center mt-5'>
+                                ? <div className='btnDiv mt-5'>
                                 <button className="mx-3 btnCarrito" onClick={handlePurchase}>Ir al Carrito</button>
                                 <Link to="/products" className='mx-3 btnBackStore' onClick={handlePurchaseBack} size={size}>¡Quiero comprar más cosas!</Link>
                             </div>

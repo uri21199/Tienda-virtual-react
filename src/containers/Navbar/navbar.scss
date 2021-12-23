@@ -41,8 +41,11 @@
         }
     }
 
-    .menuUl {
-        display: flex;
+    .mobileMenu{
+        display: none;
+        margin: 0 0 0 20%;
+    }
+
 
         .items {
             list-style: none;
@@ -57,7 +60,7 @@
                 font-size: 1.4em;
             }
         }
-    }
+
 
     .SignUp {
         display: flex;
@@ -120,3 +123,32 @@
         }
     }
 }
+
+@media screen and (max-width: 600px) {
+    .headerTop{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .headerBajo{
+        
+        .mobileMenu {
+            display: block;
+            font-size: 2em;
+            align-items: center;
+            cursor: pointer;
+        }
+        .items {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                a{
+                    color: #fff;
+                }
+            }
+        }
+
+    }

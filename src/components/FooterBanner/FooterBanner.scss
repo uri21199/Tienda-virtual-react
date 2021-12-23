@@ -1,8 +1,11 @@
 .subscribe{
     background-color: yellow;
+    width: 100%;
     height: 125px;
     margin: 150px 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
 
     .subscribeFirst{
         font-size: 1.2em;
@@ -45,5 +48,5 @@
 @media screen and (max-width: 600px) {
     .subscribe{
         display: none;
-    }
+}
 }

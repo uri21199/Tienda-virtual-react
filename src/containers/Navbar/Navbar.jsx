@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import icono from '../../assets/images/iconos/icono.png'
 import './navbar.scss'
 import { CartWidget } from '../../components/CartWidget/CartWidget'
@@ -10,6 +10,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { useModal } from '../../hooks/useModal'
 import Modal from '../../components/Modal/Modal'
 import swal from 'sweetalert'
+import { Menu } from './NavbarElements'
 
 const Navbar = () => {
 
@@ -18,7 +19,7 @@ const Navbar = () => {
     const [isOpenModal1, OpenModal1, CloseModal1] = useModal(false)
     const [isOpenModal2, OpenModal2, CloseModal2] = useModal(false)
     const [isOpenModal3, OpenModal3, CloseModal3] = useModal(false)
-
+    const [mobileMenu, setMobileMenu] = useState(false)
 
     const history = useHistory()
 
@@ -51,12 +52,16 @@ return (
                     <img src={icono} alt="Icono de Tienda Marvel" />
                 </a>
             </div>
+            <div className='mobileMenu' onClick={() => setMobileMenu(!mobileMenu)}>
+            <i class="fas fa-bars"></i>
+            </div>
             <nav className="menu">
-                <ul className="menuUl">
+                <Menu open={mobileMenu}>
                     <li className="items"><Link to="/">Inicio</Link></li>
                     <li className="items"><Link to="/products">Productos</Link></li>
                     <li className="items"><Link to="/contact">Contacto</Link></li>
-                </ul>
+                </Menu>
+
             </nav>
             <div className="SignUp">
                 {
