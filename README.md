@@ -2,7 +2,7 @@
 
 ## Creado por Lautaro Bustos
 
-Se puede ver en https://practical-hodgkin-2236eb.netlify.app/products
+Se puede ver en https://practical-hodgkin-2236eb.netlify.app
   
   
 
