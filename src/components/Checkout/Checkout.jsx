@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
-import { addDoc, collection, doc, getDoc, Timestamp, updateDoc, writeBatch, batch } from "firebase/firestore"
+import { addDoc, collection, documentId, getDocs, query, Timestamp, where, writeBatch } from "firebase/firestore"
 import db from '../../firebase/config'
 import { Link } from 'react-router-dom'
 import './Checkout.scss'
@@ -33,14 +33,8 @@ const schema = Yup.object().shape({
 
 const Checkout = () => {
 
-    const {cart, totalPrice, emptyCart, setCounter, talla} = useContext(CartContext)
+    const {cart, totalPrice, emptyCart} = useContext(CartContext)
     const [orderId, setOrderId] = useState(null)
-
-    cart.map (item => {
-        item.talla = talla
-        let numero = item.sizeStock[item.talla]
-        console.log(numero)
-    })
 
     const handleSubmit = (values) => {
 
@@ -51,37 +45,45 @@ const Checkout = () => {
             date: Timestamp.fromDate(new Date())
         }
 
-        const ordersRef = collection(db, "orders")
+    const batch = writeBatch(db)
+    const ordersRef = collection(db, "orders")
+    const productsRef = collection(db, "productos")
+    const q = query(productsRef, where(documentId(), "in", cart.map(el => el.id)))
+    const outOfStock = []
 
-        addDoc(ordersRef, order)
-            .then((res) => {
-                setOrderId(res.id)
-                const productsRef = collection(db, "productos")
-                //actualizar el stock de los productos en la base de datos
-                cart.forEach(item => {
-                    const docRef = doc(productsRef, item.id)
+    getDocs(q)
+    .then((res) => {
+        res.docs.forEach((doc) => {
+            const itemInCart = cart.find((prod) => prod.id === doc.id)
+            const refStock = doc.data().sizeStock
+            console.log(refStock)
 
-                    getDoc(docRef)
-                        .then(doc => {
-                            const itemInCart = cart.find((prod) => prod.id === doc.id)
-                            const refStock = itemInCart.sizeStock
-
-                            if (doc.data().sizeStock[itemInCart.talla] > itemInCart.cantidad) {
-                                updateDoc(doc.ref, {
-                                    sizeStock: {
-                                        ...refStock,
-                                        [itemInCart.talla]: doc.data().sizeStock[itemInCart.talla] - itemInCart.cantidad
-                                    },
-                                    stock: doc.data().stock - itemInCart.cantidad
-                                })
-                            }
-                        })
+            if (doc.data().sizeStock[itemInCart.talla] >= itemInCart.cantidad){
+                batch.update(doc.ref, {
+                    stock: doc.data().stock - itemInCart.cantidad,
+                    sizeStock: {
+                        ...refStock,
+                        [itemInCart.talla]: refStock[itemInCart.talla] - itemInCart.cantidad
+                    }
                 })
+                console.log(doc.data().sizeStock[itemInCart.talla])
+                console.log(itemInCart.cantidad)
+            } else {
+                outOfStock.push(itemInCart)
+            }
+        })
+        if (outOfStock.length === 0){
+            addDoc(ordersRef, order)
+            .then((res) => {
+                batch.commit()
+                setOrderId(res.id)
                 emptyCart()
-                setCounter(0)
             })
+        } else {
+            console.log(outOfStock)
+            alert("No hay suficiente stock para la cantidad solicitada")
         }
-
+    })}
 
     return (
         <div>
