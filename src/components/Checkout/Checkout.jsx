@@ -90,7 +90,7 @@ const Checkout = () => {
                     <h3 className='my-3'>¡Tu compra se ha registrado exitosamente!</h3>
                     <hr/>
                     <p>Tu orden ha sido registrada con el id: {orderId}</p>
-                    <Link to="/">Volver al inicio</Link>
+                    <Link to="/" className='backLink'>Volver al inicio</Link>
                 </>
 
                 :
