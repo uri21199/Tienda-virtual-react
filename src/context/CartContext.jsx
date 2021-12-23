@@ -8,7 +8,7 @@ const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([])
     const [cantidad, setCantidad] = useState(0)
     const [counter, setCounter] = useState(0)
-
+    const [talla, setTalla] = useState('')
 
     const addingQuantity = (quantity) => {
         setCantidad(cantidad + quantity)
@@ -16,12 +16,15 @@ const CartContextProvider = ({children}) => {
 
     const addItem = (item, quantity) => {
         if (isInCart(item.id)) {
-            swal({
-                title: 'Ya está en el carrito',
-                text: 'Puedes agregar más de una vez',
-                icon: 'warning',
-                timer: 2000
+            //agregar cantidad
+            const newCart = cart.map(cartItem => {
+                if (cartItem.id === item.id) {
+                    cartItem.cantidad += quantity
+                }
+                return cartItem
             })
+            setCart(newCart)
+            
         } else {
             setCart([...cart, {cantidad: quantity,...item}])
         }
@@ -69,7 +72,7 @@ const CartContextProvider = ({children}) => {
     }
 
     return ( 
-    <CartContext.Provider value = {{ cart, counter, setCounter, addItem, addingQuantity, removeFromCart, emptyCart, totalPrice, totalProductsCart, removeOneProduct}} > 
+    <CartContext.Provider value = {{ cart, counter, setCounter, addItem, addingQuantity, removeFromCart, emptyCart, totalPrice, totalProductsCart, removeOneProduct, setTalla, talla}} > 
         {children} 
     </CartContext.Provider>
     )

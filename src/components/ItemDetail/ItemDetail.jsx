@@ -1,6 +1,8 @@
+import { collection, doc, getDoc, updateDoc } from 'firebase/firestore'
 import React, {useContext, useState} from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
+import db from '../../firebase/config'
 import ItemCount from '../ItemCount/ItemCount'
 import ItemDetailDescription from '../ItemDetailDescription/ItemDetailDescription'
 import ItemDetailSimilar from '../ItemDetailSimilar/ItemDetailSimilar'
@@ -13,14 +15,30 @@ const ItemDetail = ({products}) => {
     const [comprar, setComprar] = useState(false)
     const [size, setSize] = useState('')
     const history = useHistory()
-    const {addItem, addingQuantity, setCounter} = useContext(CartContext)
-    
-    
+    const {addItem, addingQuantity, setCounter, setTalla, talla} = useContext(CartContext)
+
     const changeSize = (e) => {
         setSize(e.target.textContent)
         changeStyleSize(e)
         cambiar(e)
         setCounter(0)
+    }
+
+    const addSize = (e) => {
+        const productsRef = collection (db, "productos")
+        const docRef = doc(productsRef, products.id)
+        getDoc(docRef)
+            .then(doc => {
+                setTalla(size)
+                updateDoc(docRef, {
+                    talla: talla
+                })
+            })
+    }
+    
+    if (size !== '') {
+        addSize()
+        console.log(size)
     }
 
     const cambiar = (e) => {
@@ -104,7 +122,7 @@ const ItemDetail = ({products}) => {
                             comprar && quantity > 0
                                 ? <div className='d-flex align-items-center justify-content-center mt-5'>
                                 <button className="mx-3 btnCarrito" onClick={handlePurchase}>Ir al Carrito</button>
-                                <Link to="/products" className='mx-3 btnBackStore' onClick={handlePurchaseBack}>¡Quiero comprar más cosas!</Link>
+                                <Link to="/products" className='mx-3 btnBackStore' onClick={handlePurchaseBack} size={size}>¡Quiero comprar más cosas!</Link>
                             </div>
                             : <ItemCount stock={products.stock} onAdd={(qty) => onAdd(qty)} quantity={quantity} size={size} message="Agregar al carrito"/>
                         }

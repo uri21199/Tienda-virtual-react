@@ -74,15 +74,12 @@ const UserContextProvider = ({children}) => {
     )
 
     const dropOut = () => {
-        let confirmar = window.confirm('¿Estás seguro de que quieres eliminar tu cuenta?')
-        if (confirmar) {
-            deleteUser(user).then(() => {
-                // User deleted.
-              }).catch((error) => {
-                // An error ocurred
-                // ...
-              });
-    }
+        deleteUser(user).then(() => {
+            console.log('Usuario eliminado')
+        }).catch((error) => {
+            console.log(error.message)
+        });
+        logout()
     }
 
     return ( 

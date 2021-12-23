@@ -2,6 +2,7 @@
     background-color: yellow;
     height: 125px;
     margin: 150px 0;
+    display: flex;
 
     .subscribeFirst{
         font-size: 1.2em;
@@ -11,8 +12,7 @@
     }
 
     .subscribeSecond{
-        
-        
+
         a{
             border: none;
             text-transform: uppercase;
@@ -34,4 +34,16 @@
 
     }
 
+}
+
+@media screen and (max-width: 800px) {
+    .subscribeSecond{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .subscribe{
+        display: none;
+    }
 }
