@@ -7,7 +7,7 @@
 
 El Proyecto está basado en productos extraídos del sitio oficial de Adidas, de la sección de Boca Juniors específicamente.
 
-  ![enter image description here](https://i.ibb.co/Fb88JRN/Sin-t-tulo.png)`Imagen de la HomePage del sitio`
+  ![(https://i.ibb.co/Fb88JRN/Sin-t-tulo.png)`Imagen de la HomePage del sitio`
 
 ### Herramientas utilizadas
 
